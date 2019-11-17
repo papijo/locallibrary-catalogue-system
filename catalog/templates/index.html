@@ -1,0 +1,218 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="align-items-center justify-content-between mb-4">
+      <h1 class="text-center"><em>Welcome to Alexandria</em>!</h1>
+      <h5>The library has the following record counts:</h5>
+  </div>
+
+  <div class="row">
+
+    <!-- Number of Books -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Number of Books in Library</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_books }}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-book fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of Authors -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Authors</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_authors }}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-users fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of Copies -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Copies</div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ num_instances }}</div>
+                </div>
+                <div class="col">
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of Copies Available -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Copies Available</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_instances_available }}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-book-open fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+      <!-- Number of Languages-->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Languages</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_languages }}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Number of Genres -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Genres</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_genres }}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-theater-masks fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+    </div>
+
+  </div>
+
+  <div id="quoteDisplay">
+
+    </div>
+    <button class="btn btn-outline-primary" onclick="newQuote()">New Quote</button> <br/>
+
+    
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100 " src="https://source.unsplash.com/lpjshIWEnDM" alt="First slide" height="500"  >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First Slide</h5>
+            <p>First Slide</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://source.unsplash.com/k9TDpGMDavs" alt="Second slide" height="500"  >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second Slide</h5>
+            <p>Second Slide</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://source.unsplash.com/6KZZJMEbdQg" alt="Third slide" height="500" >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third Slide</h5>
+            <p>Third Slide</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+
+
+  
+        <div class="container">
+            <div class="slider">
+                <div class="mask">
+                  <ul>
+                    <li class="anim1">
+                      <div class="quote">I love you the more that i believe you had liked me for my own sake and for nothing else</div>
+                      <div class="source">- John Keats</div>
+                    </li>
+                    <li class="anim2">
+                      <div class="quote">But Man is not made for defeat. A man can be destroyed but not defeated.</div>
+                      <div class="source">- Ernest Hemingway</div>
+                    </li>
+                    <li class="anim3">
+                      <div class="quote">I have not failed. I have just found 10,000 ways that won't work.</div>
+                      <div class="source">- Thomas A. Edison</div>
+                    </li>
+                    <li class="anim4">
+                      <div class="quote">Never interrupt your enemy when he is making a mistake.</div>
+                      <div class="source">- Napoleon Bonaparte</div>
+                    </li>
+                    <li class="anim5">
+                      <div class="quote">Impossible is a word to be found only in the dictionary of fools.</div>
+                      <div class="source">- Napoleon Bonaparte</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+    
+
+   
+
+
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+  
+
+{% endblock %}

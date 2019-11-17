@@ -1,0 +1,69 @@
+{% extends "base_generic.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+    {% if form.errors %}
+    <h3>Your username and password didn't match. Please try again.</h3>
+    {% endif %}
+    
+    {% if next %}
+        {% if user.is_authenticated %}
+        <h3>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</h3>
+        {% else %}
+        <h3>Please login to see this page.</h3>
+        {% endif %}
+    {% endif %}
+
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4 card">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-9">
+                   
+                {{ form.username|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row">
+                    <div class="col-9">
+                            {{ form.password|as_crispy_field }}
+                      </div>
+              </div>
+           
+            <button type="submit" class="btn btn-outline-primary" value="login">Login</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+          </form>
+          <br/>
+    
+          {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a  href="{% url 'password_reset' %}">Lost password?</a></p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+        
+      
+      
+      
+
+
+{% endblock %}

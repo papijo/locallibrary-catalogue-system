@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+      <!-- Default Card Example -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h1>List of All Books in the Library</h1>
+        </div>
+        <div class="card-body">
+            {% if book_list %}
+  <ol>
+    {% for book in book_list %}
+      <li class = "links">
+          <img height="150" width="150" src="{{ book.image.url }}" />  <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by <a href="{% url 'author-detail' book.author.pk %}">({{book.author}})</a>
+      </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %} 
+        </div>
+      </div>
+
+          </div>
+
+  </div>
+
+
+
+  
+
+{% endblock %}

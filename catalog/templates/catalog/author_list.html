@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h1>Author List</h1>
+    </div>
+    <div class="card-body">
+        {% if author_list %}
+  <ol>
+
+  {% for author in author_list %}
+    <li class="links">
+      <img height="150" width="150" src="{{ author.image.url }}" /><a href="{{ author.get_absolute_url }}">
+      {{ author }} ({{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %})
+      </a>
+    </li>
+  {% endfor %}
+
+ </ol>
+{% else %}
+  <p>There are no authors available.</p>
+{% endif %}
+    </div>
+  </div>
+        
+        
+        
+{% endblock %}
